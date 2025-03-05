@@ -1,6 +1,17 @@
-# HoloInventory
+# HoloInventory-UEL
 
 Adds Holographic inventory screen for all blocks with an inventory.
+
+### New features in UEL:
+- Mod is enabled by default
+- Hold H to show -> Press H to toggle by default
+- Sneak/sprint to show set to false by default
+- New config options:
+  Toggleable name display, respectively for merchants and containers
+  Adjustable rotation speed, set to 0.0 to turn the rotation off
+
+---
+##### Old readme
 
 [Download from CurseForge](https://minecraft.curseforge.com/projects/holoinventory)
 
