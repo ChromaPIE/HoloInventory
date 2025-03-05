@@ -126,6 +126,15 @@ public class HoloInventory
         Helper.showOnSprint = config.get(MODID, "showOnSprint", true, "Show on sprint, bypasses other keyboard settings.").setRequiresWorldRestart(false).setRequiresMcRestart(false).getBoolean();
         Helper.banned = Sets.newHashSet(config.get(MODID, "banned", new String[0]).setRequiresWorldRestart(false).setRequiresMcRestart(false).getStringList());
 
+        Helper.rotationSpeed = config.get(
+            MODID,
+            "rotationSpeed",
+            1.0,
+            "Set the rotation speed for renderer icons. 1.0 = current speed, 1.5 = 150% of current speed, 0.0 to disable rotation.",
+            0.0,
+            5.0
+        ).setRequiresWorldRestart(false).getDouble();
+
         if (config.hasChanged()) config.save();
     }
 

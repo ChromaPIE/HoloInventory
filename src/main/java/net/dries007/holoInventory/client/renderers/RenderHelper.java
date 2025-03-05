@@ -24,6 +24,7 @@
 package net.dries007.holoInventory.client.renderers;
 
 import net.dries007.holoInventory.client.ClientEventHandler;
+import net.dries007.holoInventory.Helper;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.RenderItem;
@@ -85,9 +86,14 @@ public class RenderHelper
         GlStateManager.pushAttrib();
         GlStateManager.translate(0.4f * (cols / 2.0 - col) - 0.2f, 0.4f * (rows / 2.0 - row), 0);
         GlStateManager.pushMatrix();
-        GlStateManager.rotate((float) (360.0 * (double) (System.currentTimeMillis() & 0x3FFFL) / (double) 0x3FFFL), 0, 1, 0);
-        GlStateManager.scale(0.45, 0.45, 0.45);
 
+        if (Helper.rotationSpeed > 0) {
+            long time = System.currentTimeMillis();
+            float angle = (float) (360.0 * (time & 0x3FFFL) / 0x3FFFL * Helper.rotationSpeed;
+            GlStateManager.rotate(angle, 0, 1, 0);
+        }
+
+        GlStateManager.scale(0.45, 0.45, 0.45);
         ri.renderItem(stack, ItemCameraTransforms.TransformType.FIXED);
 
         if (stack.hasEffect())
