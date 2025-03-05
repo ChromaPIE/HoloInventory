@@ -80,20 +80,19 @@ public class RenderHelper
         GlStateManager.popMatrix();
     }
 
-    public static void renderStack(RenderItem ri, ItemStack stack, int cols, int col, int rows, int row)
-    {
+    public static void renderStack(RenderItem ri, ItemStack stack, int cols, int col, int rows, int row) {
         GlStateManager.pushMatrix();
         GlStateManager.pushAttrib();
-        GlStateManager.translate(0.4f * (cols / 2.0 - col) - 0.2f, 0.4f * (rows / 2.0 - row), 0);
+        GlStateManager.translate(0.4f * (cols / 2.0f - col) - 0.2f, 0.4f * (rows / 2.0f - row), 0);
         GlStateManager.pushMatrix();
 
         if (Helper.rotationSpeed > 0) {
             long time = System.currentTimeMillis();
-            float angle = (float) (360.0 * (time & 0x3FFFL) / 0x3FFFL * Helper.rotationSpeed;
+            float angle = (float) (360.0 * (time % 0x3FFFL) / 0x3FFFL * Helper.rotationSpeed);
             GlStateManager.rotate(angle, 0, 1, 0);
         }
 
-        GlStateManager.scale(0.45, 0.45, 0.45);
+        GlStateManager.scale(0.45f, 0.45f, 0.45f);
         ri.renderItem(stack, ItemCameraTransforms.TransformType.FIXED);
 
         if (stack.hasEffect())

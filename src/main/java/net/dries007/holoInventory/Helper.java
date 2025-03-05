@@ -36,6 +36,8 @@ public class Helper
 {
     public static boolean showOnSneak;
     public static boolean showOnSprint;
+    public static boolean renderBlockName = true;
+    public static boolean renderMerchantName = true;
     public static HashSet<String> banned;
     public static double rotationSpeed = 1.0;
 

@@ -82,8 +82,8 @@ public class ClientEventHandler
         instance = new ClientEventHandler();
         MinecraftForge.EVENT_BUS.register(new ClientEventHandler());
 
-        keyHold = new KeyBinding("Hold to show", KeyConflictContext.IN_GAME, Keyboard.KEY_H, HoloInventory.MODID);
-        keyToggle = new KeyBinding("Toggle to show", KeyConflictContext.IN_GAME, 0, HoloInventory.MODID);
+        keyHold = new KeyBinding("Hold to show", KeyConflictContext.IN_GAME, 0, HoloInventory.MODID);
+        keyToggle = new KeyBinding("Toggle to show", KeyConflictContext.IN_GAME, Keyboard.KEY_H, HoloInventory.MODID);
         ClientRegistry.registerKeyBinding(keyHold);
         ClientRegistry.registerKeyBinding(keyToggle);
     }

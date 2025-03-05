@@ -24,6 +24,7 @@
 package net.dries007.holoInventory.client.renderers;
 
 import net.dries007.holoInventory.client.ClientEventHandler;
+import net.dries007.holoInventory.Helper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.GlStateManager;
@@ -103,7 +104,7 @@ public class InventoryRenderer implements IRenderer
         if (rows > 4) GlStateManager.scale(0.8, 0.8, 0.8);
 
         // Draw name, with depth disabled
-        {
+        if (Helper.renderBlockName) {
             GlStateManager.pushMatrix();
             GlStateManager.pushAttrib();
             GlStateManager.rotate(180, 0, 0, 1);

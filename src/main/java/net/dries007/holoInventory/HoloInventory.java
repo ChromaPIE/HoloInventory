@@ -122,18 +122,32 @@ public class HoloInventory
     {
         logger.info("Update config");
 
-        Helper.showOnSneak = config.get(MODID, "showOnSneak", true, "Show on sneak, bypasses other keyboard settings.").setRequiresWorldRestart(false).setRequiresMcRestart(false).getBoolean();
-        Helper.showOnSprint = config.get(MODID, "showOnSprint", true, "Show on sprint, bypasses other keyboard settings.").setRequiresWorldRestart(false).setRequiresMcRestart(false).getBoolean();
+        Helper.showOnSneak = config.get(MODID, "showOnSneak", false, "Show on sneak, bypasses other keyboard settings.").setRequiresWorldRestart(false).setRequiresMcRestart(false).getBoolean();
+        Helper.showOnSprint = config.get(MODID, "showOnSprint", false, "Show on sprint, bypasses other keyboard settings.").setRequiresWorldRestart(false).setRequiresMcRestart(false).getBoolean();
         Helper.banned = Sets.newHashSet(config.get(MODID, "banned", new String[0]).setRequiresWorldRestart(false).setRequiresMcRestart(false).getStringList());
 
         Helper.rotationSpeed = config.get(
             MODID,
             "rotationSpeed",
             1.0,
-            "Set the rotation speed for renderer icons. 1.0 = current speed, 1.5 = 150% of current speed, 0.0 to disable rotation.",
+            "Set the rotation speed for rendered items. 1.0 = current speed, 1.5 = 150% of current speed, 0.0 to disable rotation.",
             0.0,
             5.0
-        ).setRequiresWorldRestart(false).getDouble();
+        ).setRequiresWorldRestart(false).setRequiresMcRestart(false).getDouble();
+
+        Helper.renderBlockName = config.get(
+            MODID,
+            "renderBlockName",
+            true,
+            "Render block name on top of rendered items."
+        ).setRequiresWorldRestart(false).setRequiresMcRestart(false).getBoolean();
+
+        Helper.renderMerchantName = config.get(
+            MODID,
+            "renderMerchantName",
+            true,
+            "Render merchant name on top of rendered trades."
+        ).setRequiresWorldRestart(false).setRequiresMcRestart(false).getBoolean();
 
         if (config.hasChanged()) config.save();
     }

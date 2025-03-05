@@ -24,6 +24,7 @@
 package net.dries007.holoInventory.client.renderers;
 
 import net.dries007.holoInventory.client.ClientEventHandler;
+import net.dries007.holoInventory.Helper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.GlStateManager;
@@ -71,7 +72,7 @@ public class MerchantRenderer implements IRenderer
         GlStateManager.scale(d * 0.2, d * 0.2, d * 0.2);
 
         // Draw name, with depth disabled
-        {
+        if (Helper.renderMerchantName) {
             GlStateManager.pushMatrix();
             GlStateManager.pushAttrib();
             GlStateManager.rotate(180, 0, 0, 1);
